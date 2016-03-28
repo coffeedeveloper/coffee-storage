@@ -10,7 +10,7 @@ function extend(target) {
 
 const defaults = {
   key: '',
-  version: '1',
+  version: '',
   defaultValue: {},
   autoSave: true,
 };
@@ -51,7 +51,7 @@ export default class Storage {
 
     this.val = v;
 
-    if (this.val._version_ != this.opts.version) {
+    if (this.opts.version && this.val._version_ != this.opts.version) {
       this.clear();
     }
   }
@@ -88,7 +88,7 @@ export default class Storage {
 
   clear() {
     this.val = copy(this.opts.defaultValue);
-    this.val._version_ = this.opts.version;
+    if (this.opts.version) this.val._version_ = this.opts.version;
     this.opts.autoSave && (this.save());
     return this.val;
   }
