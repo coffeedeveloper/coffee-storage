@@ -10,7 +10,14 @@
 ```js
 //key为是在localStorage中的item的名称
 var storage = new Storage('key');
+//如果需要版本管理
+var storage = new Storage({
+  key: 'key',
+  version: '1.1', //每当版本号变更的时候，会清空原有内容
+  autoSave: true, //是否自动保存，自动保存的话，在使用了set之后就自动保存
+});
 ```
+
 ### `set`设置属性的值
 ```js
 storage.set('x', 1);

@@ -94,10 +94,8 @@ export default class Storage {
   }
 
   check(val) {
-    // let type = typeof val;
-    var type = 'string';
-    var r = false;
-    if (val == null) return true;
+    let type = typeof val;
+    let r = false;
 
     switch (type) {
       case 'string':

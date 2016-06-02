@@ -1,6 +1,6 @@
 {
   "name": "coffee-storage",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "localstorage helper",
   "main": "lib/storage.js",
   "directories": {
@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "babel src/index.js --out-file lib/storage.js --watch",
-    "build": "babel src/index.js --out-file lib/storage.js",
+    "build": "babel src/index.js --out-file lib/storage.js && uglifyjs lib/storage.js -o dist/storage.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
