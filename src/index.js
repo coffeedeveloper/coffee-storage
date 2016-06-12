@@ -105,7 +105,7 @@ export default class Storage {
       //array or object
       case 'object':
         try {
-          JSON.parse(val);
+          JSON.stringify(val);
           r = true;
         } catch (err) {
           console.warn(err);
