@@ -38,6 +38,14 @@ export default class Storage {
   }
 
   init() {
+    this.refresh()
+
+    if (this.opts.version && this.val._version_ != this.opts.version) {
+      this.clear();
+    }
+  }
+
+  refresh() {
     let r = localStorage.getItem(this.opts.key);
 
     let v = copy(this.opts.defaultValue);
@@ -50,10 +58,6 @@ export default class Storage {
     }
 
     this.val = v;
-
-    if (this.opts.version && this.val._version_ != this.opts.version) {
-      this.clear();
-    }
   }
 
   get(prop) {
